@@ -11,6 +11,7 @@
       "typeorm": "typeorm-ts-node-commonjs"
    },
    "devDependencies": {
+      "@types/uuid": "^9.0.1",
       "@types/express": "^4.17.17",
       "@types/jsonwebtoken": "^9.0.2",
       "@types/node": "^16.11.10",
@@ -30,6 +31,7 @@
       "swagger-ui-express": "^4.6.3",
       "ts-node-dev": "^2.0.0",
       "typeorm": "0.3.16",
+      "uuid": "^9.0.0",
       "yup": "^1.1.1"
    }
 }
