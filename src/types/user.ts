@@ -1,4 +1,4 @@
 export interface IUserToken {
   id: number;
-  username: string;
+  userName: string;
 }
