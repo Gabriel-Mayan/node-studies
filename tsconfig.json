@@ -1,0 +1,29 @@
+{
+   "compilerOptions": {
+      "lib": [
+         "es5",
+         "es6"
+      ],
+      
+      "target": "es2019",
+      "module": "commonjs",
+      "moduleResolution": "node",
+      
+      "allowJs": true,
+      "sourceMap": true,
+      "baseUrl": "./src",
+      "outDir": "./build",
+     
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "forceConsistentCasingInFileNames": true,
+      
+      "paths": {
+         "@/*": ["*"],
+      }
+   },   
+  "include": [ "src" ],
+  "exclude": [ "node_modules" ]
+}
