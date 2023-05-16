@@ -1,8 +1,9 @@
-import express from "express";
+import "express-async-errors";
+import { Router } from "express";
 import swaggerUi from "swagger-ui-express";
-import swaggerDocument from "./docs/swagger.json";
+import swaggerDocument from "../docs/swagger.json";
 
-const router = express.Router();
+const router = Router();
 
 router.use('/api-docs', swaggerUi.serve);
 router.get('/api-docs', swaggerUi.setup(swaggerDocument));

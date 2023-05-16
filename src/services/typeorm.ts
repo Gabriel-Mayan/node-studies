@@ -1,8 +1,7 @@
-import "reflect-metadata"
+import "reflect-metadata";
 import { config } from "dotenv";
-import { DataSource } from "typeorm"
-
-import { User } from "../entity/User"
+import { DataSource } from "typeorm";
+import { User } from "../entity/User";
 
 config();
 
