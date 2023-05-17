@@ -1,5 +1,5 @@
 {
-   "name": "sis_config",
+   "name": "node_config",
    "version": "0.0.1",
    "description": "Awesome project developed with TypeORM.",
    "type": "commonjs",
