@@ -1,6 +1,5 @@
-import { Request, Response, NextFunction } from 'express';
-
 import { validateToken } from '../helpers/handleToken';
+import { Request, Response, NextFunction } from 'express';
 
 export const authentication = async (request: Request, response: Response, next: NextFunction): Promise<Response | void> => {
   try {
