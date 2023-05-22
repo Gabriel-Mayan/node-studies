@@ -6,6 +6,6 @@ import { validateBody } from '../middlewares/validateRequests';
 
 const routes = Router();
 
-routes.post('/login', validateBody(loginSchema), login);
+routes.post('/login', /*validateBody(loginSchema),*/ login);
 
 export default routes;

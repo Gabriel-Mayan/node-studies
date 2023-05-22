@@ -6,6 +6,6 @@ import { validateBody } from '../middlewares/validateRequests';
 
 const routes = Router();
 
-routes.post('/user/create', validateBody(createUserSchema), createUser);
+routes.post('/user/create', /*validateBody(createUserSchema),*/ createUser);
 
 export default routes;

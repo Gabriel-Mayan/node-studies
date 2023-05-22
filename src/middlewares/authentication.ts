@@ -22,7 +22,7 @@ export const authentication = async (request: Request, response: Response, next:
       return response.status(404).json('Token inválido');
     }
 
-    delete user.password;
+    //delete user.password;
     request.user = user;
 
     next();
