@@ -1,4 +1,4 @@
-import { format, add, isAfter } from 'date-fns';
+import { Duration, format, add, isAfter } from 'date-fns';
 
 const REMOVE_HOURS_MINUTES = 'P';
 
