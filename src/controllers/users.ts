@@ -1,12 +1,10 @@
-import { userRepsitory } from '../entity/user.entity';
+import { getUsers } from '../repositories/UserRepository';
 import { Request, Response } from 'express';
 
-export const createUser = async (request: Request, response: Response) => {
+export const getUser = async (request: Request, response: Response) => {
   try {
-    const user = { userName: 'acebildes' };
-    console.log(user);
-    const teste = userRepsitory.create(user);
-
+    const teste = await getUsers();
+    console.log(teste)
     return response.status(200).json(teste);
   } catch (error: any) {
     return response.status(200).json(error.message);

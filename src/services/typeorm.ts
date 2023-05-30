@@ -1,7 +1,8 @@
 import "reflect-metadata";
 import { config } from "dotenv";
 import { DataSource } from "typeorm";
-import { User } from "../entity/user.entity";
+import { User } from "../entity/User";
+import { CreateUserTable1684792693433 } from "../database/migrations/1684792693433-CreateUserTable";
 
 config();
 
@@ -15,6 +16,6 @@ export const AppDataSource = new DataSource({
     synchronize: true,
     logging: false,
     entities: [User],
-    migrations: [],
+    migrations: [CreateUserTable1684792693433],
     subscribers: [],
 });

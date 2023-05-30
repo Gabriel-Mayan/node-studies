@@ -1,13 +1,10 @@
-import { AppDataSource } from "../services/typeorm";
 import { Entity, PrimaryGeneratedColumn, Column, BaseEntity } from "typeorm";
 
 @Entity()
 export class User extends BaseEntity {
     @PrimaryGeneratedColumn("uuid")
-    id: string
+    id: string;
 
-    @Column()
-    userName: string
+    @Column('varchar', { length: 100, nullable: false })
+    userName: string;
 }
-
-export const userRepsitory = AppDataSource.getRepository(User)
