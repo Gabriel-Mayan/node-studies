@@ -2012,6 +2012,11 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
+yup-locales@^1.2.12:
+  version "1.2.12"
+  resolved "https://registry.yarnpkg.com/yup-locales/-/yup-locales-1.2.12.tgz#21b2be68f37350912d85099924541d7d00dd77b2"
+  integrity sha512-UqKwQBS1V8niBPFjpE7WgH7a40QqzhDbIMjunpM0fCNLmSZMdmkYKbFwfA86VOQqUEsmBumxXQLVgtwJzFSpYA==
+
 yup@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npmjs.org/yup/-/yup-1.1.1.tgz"

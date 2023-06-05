@@ -1,4 +1,4 @@
-import * as yup from "yup";
+import yup from '../services/yup';
 
 export const createUserSchema = yup.object().shape({
   userName: yup
