@@ -1,3 +1,4 @@
+import { findUser } from '@/repositories/UserRepository';
 import { validateToken } from '../helpers/handleToken';
 import { Request, Response, NextFunction } from 'express';
 
@@ -10,19 +11,16 @@ export const authentication = async (request: Request, response: Response, next:
     }
 
     const token = authorization.replace('Bearer', '').trim();
-    //TODO ajustar depois
-    const result: any = validateToken(token);
+    //TODO Tipar isso aqui
+    const { id, userName }: any = validateToken(token);
 
-    const { id, userName } = result;
-
-    //TODO ajustar depois a conexão com o banco de dados
-    const user = { password: '' }//await userRepository.findOneBy({ id, userName });
+    const user = await findUser({ id, userName });
 
     if (!user) {
       return response.status(404).json('Token inválido');
     }
 
-    //delete user.password;
+    delete user.password;
     request.user = user;
 
     next();
@@ -30,5 +28,3 @@ export const authentication = async (request: Request, response: Response, next:
     return response.status(400).json('Auth Error');
   }
 };
-
- authentication;

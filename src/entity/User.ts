@@ -7,4 +7,7 @@ export class User extends BaseEntity {
 
     @Column('varchar', { length: 100, nullable: false })
     userName: string;
+
+    @Column('varchar', { length: 100, nullable: false })
+    password: string;
 }
