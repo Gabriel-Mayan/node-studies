@@ -1,5 +1,5 @@
 import { User } from "../entity/User";
-import { IUser } from "../types/user";
+import { IUser } from "../@types/user";
 import { AppDataSource } from "../services/typeorm";
 import { FindOptionsWhere } from "typeorm";
 

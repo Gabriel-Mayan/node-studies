@@ -1,4 +1,4 @@
-import { IDevError, IProdError } from "../types/error";
+import { IDevError, IProdError } from "../@types/error";
 
 export const formatErrorProd = (error: Error): IProdError => {
   console.log(error);

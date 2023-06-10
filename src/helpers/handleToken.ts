@@ -1,4 +1,4 @@
-import { IUserToken } from "../types/user";
+import { IUserToken } from "../@types/user";
 import { verify, sign } from "jsonwebtoken";
 
 const JWT_SECRET = String(process.env.JWT_SECRET);
