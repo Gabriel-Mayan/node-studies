@@ -1,10 +1,11 @@
 export interface IUser {
   id: string;
-  userName: string;
+  name: string;
   password?: string;
+  email: string;
 }
 
 export interface IUserToken {
   id: number;
-  userName: string;
+  name: string;
 }

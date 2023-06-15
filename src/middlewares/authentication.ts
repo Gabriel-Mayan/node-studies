@@ -12,9 +12,9 @@ export const authentication = async (request: Request, response: Response, next:
 
     const token = authorization.replace('Bearer', '').trim();
     //TODO Tipar isso aqui
-    const { id, userName }: any = validateToken(token);
+    const { id, name }: any = validateToken(token);
 
-    const user = await findUser({ id, userName });
+    const user = await findUser({ id, name });
 
     if (!user) {
       return response.status(404).json('Token inválido');
