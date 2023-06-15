@@ -4,4 +4,4 @@ declare namespace Express {
   }
 }
 
-declare module 'bcrypt-ts';
+declare module "bcrypt-ts";

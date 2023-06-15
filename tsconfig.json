@@ -18,8 +18,11 @@
     "strictPropertyInitialization": false,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@/*": ["*"],
-      "@types/*": ["types/*"]
+      "@types/*": ["types/*"],
+      "@helpers/*": ["helpers/*"],
+      "@services/*": ["services/*"],
+      "@entity/*": ["entity/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["src"],
