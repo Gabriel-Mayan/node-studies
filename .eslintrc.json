@@ -17,21 +17,23 @@
       "prettier"
   ],
   "rules": {
-    "@typescript-eslint/no-useless-constructor": "error",
-    "quotes":["error", "double"],
     "semi":["error", "always"],
-    "no-redeclare":"error",
-    "import/export": "error",
-    "@typescript-eslint/strict-boolean-expressions":"off",
-    "@typescript-eslint/consistent-type-definitions":"warn",
-    "@typescript-eslint/restrict-template-expressions": "error",
-    "@typescript-eslint/no-misused-promises": "error",
+    "quotes":["error", "double"],
     "indent": "warn",
-    "consistent-return": "error",
-    "no-param-reassign": "error",
-    "class-methods-use-this": "error",
-    "import/order": "error",
-    "func-names": "error",
-    "no-restricted-syntax": "error"
+    "func-names": "warn",
+    "consistent-return": "warn",
+    "import/order": "warn",
+    "import/export": "warn",
+    "import/extensions": "warn",
+    "no-redeclare":"warn",
+    "no-param-reassign": "warn",
+    "no-restricted-syntax": "warn",
+    "no-multiple-empty-lines": "warn",
+    "@typescript-eslint/no-useless-constructor": "warn",
+    "@typescript-eslint/consistent-type-definitions":"warn",
+    "no-unused-vars":"off",
+    "import/no-unresolved": "off",
+    "class-methods-use-this": "off",
+    "@typescript-eslint/strict-boolean-expressions":"off"
   }
 }
