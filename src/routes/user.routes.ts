@@ -8,4 +8,4 @@ const routes = Router();
 
 routes.get("/user", /* validateBody(createUserSchema), */ getUser);
 
-export default routes;
+export { routes };

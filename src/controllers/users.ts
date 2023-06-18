@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UserRepository } from "@entity/User";
+import { UserRepository } from "@repositiories/User";
 
 export const getUser = async (request: Request, response: Response) => {
   try {

@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express";
-import { UserRepository } from "@entity/User";
+import { UserRepository } from "@repositiories/User";
 import { validateToken } from "@helpers/handleToken";
 
 // eslint-disable-next-line max-len, consistent-return
-const authentication = async (request: Request, response: Response, next: NextFunction): Promise<Response | void> => {
+export const authentication = async (request: Request, response: Response, next: NextFunction): Promise<Response | void> => {
   try {
     const { authorization } = request.headers;
 
@@ -29,5 +29,3 @@ const authentication = async (request: Request, response: Response, next: NextFu
     return response.status(400).json("Auth Error");
   }
 };
-
-export default authentication;

@@ -22,6 +22,7 @@
       "types/*": ["@types/*"],
       "@helpers/*": ["helpers/*"],
       "@services/*": ["services/*"],
+      "@repositiories/*": ["repositiories/*"],
       "@entity/*": ["entity/*"],
       "@controllers/*": ["controllers/*"],
       "@seeds/*": ["database/seeds/*"],

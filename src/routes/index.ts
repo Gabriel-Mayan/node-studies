@@ -3,8 +3,8 @@ import { Router } from "express";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "../docs/swagger.json";
 
-import userRoutes from "./user.routes";
-import loginRoutes from "./login.routes";
+import { routes as userRoutes } from "./user.routes";
+import { routes as loginRoutes } from "./login.routes";
 
 const router = Router();
 
@@ -15,4 +15,4 @@ router.get("/", (_, response) => response.status(200).json({ message: "Server is
 router.use(userRoutes);
 router.use(loginRoutes);
 
-export default router;
+export { router };

@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { IRquestValidation, YupValidationError } from "types/yup";
 
 // eslint-disable-next-line max-len, consistent-return
-const validateRequest = ({ schema, property }: IRquestValidation) => async (request: Request, response: Response, next: NextFunction) => {
+export const validateRequest = ({ schema, property }: IRquestValidation) => async (request: Request, response: Response, next: NextFunction) => {
   try {
     const data = property ? request[property] : request;
     await schema.validate(data, { abortEarly: false });
@@ -11,5 +11,3 @@ const validateRequest = ({ schema, property }: IRquestValidation) => async (requ
     return response.status(500).json(error.errors);
   }
 };
-
-export default validateRequest;

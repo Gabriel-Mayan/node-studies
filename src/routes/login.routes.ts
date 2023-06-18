@@ -8,4 +8,4 @@ const routes = Router();
 
 routes.post("/login", /* validateBody(loginSchema), */ login);
 
-export default routes;
+export { routes };

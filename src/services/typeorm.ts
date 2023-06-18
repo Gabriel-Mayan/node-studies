@@ -2,11 +2,11 @@ import "reflect-metadata";
 import { config } from "dotenv";
 import { DataSource } from "typeorm";
 import { User } from "@entity/User";
-import CreateUser from "@migrations/1684792693433-CreateUserTable";
+import { CreateUserTable1684792693433 } from "@migrations/1684792693433-CreateUserTable";
 
 config();
 
-const AppDataSource = new DataSource({
+export const AppDataSource = new DataSource({
   type: process.env.DB_CLIENT as any,
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
@@ -16,8 +16,6 @@ const AppDataSource = new DataSource({
   synchronize: true,
   logging: false,
   entities: [User],
-  migrations: [CreateUser],
+  migrations: [CreateUserTable1684792693433],
   subscribers: [],
 });
-
-export default AppDataSource;

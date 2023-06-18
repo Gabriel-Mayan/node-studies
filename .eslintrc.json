@@ -24,7 +24,6 @@
     "consistent-return": "warn",
     "import/order": "warn",
     "import/export": "warn",
-    "import/extensions": "warn",
     "no-redeclare":"warn",
     "no-param-reassign": "warn",
     "no-restricted-syntax": "warn",
@@ -32,8 +31,10 @@
     "@typescript-eslint/no-useless-constructor": "warn",
     "@typescript-eslint/consistent-type-definitions":"warn",
     "no-unused-vars":"off",
+    "import/extensions": "off",
     "import/no-unresolved": "off",
     "class-methods-use-this": "off",
+    "import/prefer-default-export": "off",
     "@typescript-eslint/strict-boolean-expressions":"off"
   }
 }

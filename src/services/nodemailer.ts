@@ -1,7 +1,6 @@
 import handlebar from "nodemailer-express-handlebars";
 import { SendMailOptions, createTransport } from "nodemailer";
-
-import mailConfig from "@services/aws";
+import { mailConfig } from "@services/aws";
 
 const transporter = createTransport({
   SES: mailConfig,
@@ -17,7 +16,7 @@ transporter.use("compile", handlebar({
 }));
 
 // eslint-disable-next-line max-len
-const sendEmail = async (mailOptions: SendMailOptions): Promise<boolean> => new Promise<boolean>((resolve, reject) => {
+export const sendMail = async (mailOptions: SendMailOptions): Promise<boolean> => new Promise<boolean>((resolve, reject) => {
   transporter.sendMail(mailOptions, (error: Error | null) => {
     if (error) {
       reject(error);
@@ -26,5 +25,3 @@ const sendEmail = async (mailOptions: SendMailOptions): Promise<boolean> => new 
     resolve(true);
   });
 });
-
-export default sendEmail;
