@@ -21,7 +21,6 @@
     "quotes":["error", "double"],
     "indent": "warn",
     "func-names": "warn",
-    "consistent-return": "warn",
     "import/order": "warn",
     "import/export": "warn",
     "no-redeclare":"warn",
@@ -30,8 +29,10 @@
     "no-multiple-empty-lines": "warn",
     "@typescript-eslint/no-useless-constructor": "warn",
     "@typescript-eslint/consistent-type-definitions":"warn",
+
     "no-unused-vars":"off",
     "import/extensions": "off",
+    "consistent-return": "off",
     "import/no-unresolved": "off",
     "class-methods-use-this": "off",
     "import/prefer-default-export": "off",
