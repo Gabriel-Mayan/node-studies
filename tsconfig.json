@@ -23,6 +23,7 @@
       "@helpers/*": ["helpers/*"],
       "@services/*": ["services/*"],
       "@repositiories/*": ["repositiories/*"],
+      "@docs/*": ["docs/*"],
       "@entity/*": ["entity/*"],
       "@controllers/*": ["controllers/*"],
       "@seeds/*": ["database/seeds/*"],
