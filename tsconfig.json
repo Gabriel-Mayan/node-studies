@@ -20,15 +20,17 @@
     "paths": {
       "@/*":["*"],
       "types/*": ["@types/*"],
-      "@helpers/*": ["helpers/*"],
-      "@services/*": ["services/*"],
-      "@repositiories/*": ["repositiories/*"],
-      "@docs/*": ["docs/*"],
-      "@entity/*": ["entity/*"],
       "@controllers/*": ["controllers/*"],
       "@seeds/*": ["database/seeds/*"],
       "@migrations/*": ["database/migrations/*"],
-      "@utils/*": ["utils/*"]
+      "@docs/*": ["docs/*"],
+      "@entity/*": ["entity/*"],
+      "@helpers/*": ["helpers/*"],
+      "@middlewares/*": ["middlewares/*"],
+      "@repositiories/*": ["repositiories/*"],
+      "@services/*": ["services/*"],
+      "@utils/*": ["utils/*"],
+      "@validations/*": ["validations/*"],
     }
   },
   "include": ["src"],

@@ -1,4 +1,4 @@
-import { hash, compare } from "bcrypt-ts";
+import { hash, compare } from "bcryptjs";
 
-export const encryptPassword = (password: string):string => hash(password, 10);
-export const comparePassword = (pwd: string, compPwd: string):boolean => compare(pwd, compPwd);
+export const encryptPassword = async (password: string) => hash(password, 10);
+export const comparePassword = async (pwd: string, compPwd: string) => compare(pwd, compPwd);
