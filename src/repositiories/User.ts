@@ -1,7 +1,8 @@
-import { AppDataSource } from "@services/typeorm";
-import { IUser } from "types/user";
 import { FindOptionsWhere } from "typeorm";
+
+import { AppDataSource } from "@services/typeorm";
 import { User } from "@entity/User";
+import { IUser } from "types/user";
 
 const repository = AppDataSource.getRepository(User);
 
@@ -12,5 +13,9 @@ export const UserRepository = {
 
   findUser(query: FindOptionsWhere<User>): Promise<IUser | null> {
     return repository.findOneBy(query);
+  },
+
+  createUser(user: IUser): Promise<User> {
+    return repository.save(user);
   },
 };
