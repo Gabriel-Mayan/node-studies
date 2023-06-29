@@ -1,12 +1,11 @@
-import { ObjectSchema } from "yup";
+import { ObjectSchema, AnyObject } from "yup";
 import { Request, Response, NextFunction } from "express";
 
 import { YupValidationError } from "types/yup";
 
-// eslint-disable-next-line max-len, consistent-return
 export const validateRequest = (
-  schema: ObjectSchema<any>,
-  property: "query" | "body" | "params" | "",
+  schema: ObjectSchema<object, AnyObject, object>,
+  property: "query" | "body" | "params" | undefined,
 ) => async (request: Request, response: Response, next: NextFunction) => {
   try {
     const data = property ? request[property] : request;

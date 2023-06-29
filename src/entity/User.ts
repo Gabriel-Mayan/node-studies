@@ -1,5 +1,11 @@
 import {
-  Entity, PrimaryGeneratedColumn, Column, BaseEntity,
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  BaseEntity,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
 } from "typeorm";
 
 @Entity()
@@ -18,4 +24,13 @@ export class User extends BaseEntity {
 
     @Column("text", { nullable: false })
       password: string;
+
+    @CreateDateColumn({ type: "timestamp" })
+      createdAt: Date;
+
+    @UpdateDateColumn({ type: "timestamp" })
+      updatedAt: Date;
+
+    @DeleteDateColumn({ type: "timestamp", nullable: true })
+      deletedAt: Date;
 }
