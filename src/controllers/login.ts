@@ -1,9 +1,32 @@
 import { Request, Response } from "express";
 import { UserRepository } from "@repositiories/User";
+import { comparePassword } from "@/helpers/handlePassword";
+import { formatDatabaseUser } from "@/helpers/handleObject";
+import { generateUserToken } from "@/helpers/handleToken";
 
 export const login = async (request: Request, response: Response) => {
-  const teste = await UserRepository.getUsers();
-  return response.status(200).json(teste);
+  try {
+    const { email, password } = request.body;
+
+    const databaseUser = await UserRepository.findUser({ email });
+
+    if (!databaseUser) {
+      return response.status(400).json("Username or password is invalid");
+    }
+
+    const verifiedPassword = comparePassword(password, databaseUser.password);
+
+    if (!verifiedPassword) {
+      return response.status(400).json("Username or password is invalid");
+    }
+
+    const user = formatDatabaseUser(databaseUser);
+    const token = generateUserToken({ id: user.id, email: user.email });
+
+    return response.status(200).json({ user, token });
+  } catch (error) {
+    return response.status(200).json("Falha ao fazer login");
+  }
 };
 
 export const teste = "";
