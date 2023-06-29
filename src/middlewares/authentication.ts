@@ -1,31 +1,33 @@
 import { Request, Response, NextFunction } from "express";
-import { UserRepository } from "@repositiories/User";
+import { UserRepository } from "@repositories/User";
 import { validateToken } from "@helpers/handleToken";
 
-// eslint-disable-next-line max-len, consistent-return
-export const authentication = async (request: Request, response: Response, next: NextFunction): Promise<Response | void> => {
+const auth = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { authorization } = request.headers;
+    const { authorization } = req.headers;
 
     if (!authorization) {
-      return response.status(401).json("Você não possui autorização para prosseguir.");
+      return res.status(401).json("Auth Error");
     }
 
     const token = authorization.replace("Bearer", "").trim();
-    // TODO Tipar isso aqui
-    const { id, name }: any = validateToken(token);
+    const tokenInfo = validateToken(token);
 
-    const user = await UserRepository.findUser({ id, name });
-
-    if (!user) {
-      return response.status(404).json("Token inválido");
+    if (typeof tokenInfo === "string") {
+      return res.status(401).json("Auth Error");
     }
 
-    delete user.password;
-    request.user = user;
+    const { id, email } = tokenInfo;
+    const user = await UserRepository.findUser({ id, email });
+
+    if (!user) {
+      return res.status(401).json("Auth Error");
+    }
 
     next();
   } catch (error) {
-    return response.status(400).json("Auth Error");
+    return res.status(401).json("Auth Error");
   }
 };
+
+export default auth;

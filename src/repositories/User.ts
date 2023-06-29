@@ -1,7 +1,7 @@
 import { FindOptionsWhere } from "typeorm";
 
-import { AppDataSource } from "@services/typeorm";
 import { User } from "@entity/User";
+import { AppDataSource } from "@services/typeorm";
 import { IDatabaseUser, ICreateUser } from "types/user";
 
 const repository = AppDataSource.getRepository(User);

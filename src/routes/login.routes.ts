@@ -2,7 +2,8 @@ import { Router } from "express";
 
 import { login } from "@controllers/login";
 import { loginSchema } from "@validations/loginSchema";
-import { validateRequest } from "@middlewares/validateRequest";
+
+import validateRequest from "@middlewares/validateRequest";
 
 const routes = Router();
 

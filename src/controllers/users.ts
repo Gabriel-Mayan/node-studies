@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UserRepository } from "@repositiories/User";
+import { UserRepository } from "@repositories/User";
 import { encryptPassword } from "@helpers/handlePassword";
 
 export const createUser = async (request: Request, response: Response) => {

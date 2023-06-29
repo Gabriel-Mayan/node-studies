@@ -1,9 +1,7 @@
-import {
-  NextFunction, Request, RequestHandler, Response,
-} from "express";
-import { multerUpload as multer } from "@/services/multer";
+import { NextFunction, Request, Response } from "express";
+import { multerUpload as multer } from "@services/multer";
 
-export const MulterAdapter: RequestHandler = (req: Request, res: Response, next: NextFunction) => {
+export const MulterAdapter = (req: Request, res: Response, next: NextFunction) => {
   const upload = multer.array("file");
 
   upload(req, res, (error) => {

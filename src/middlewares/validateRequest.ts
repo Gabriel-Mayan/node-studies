@@ -1,11 +1,10 @@
-import { ObjectSchema, AnyObject } from "yup";
 import { Request, Response, NextFunction } from "express";
 
-import { YupValidationError } from "types/yup";
+import { YupValidationError, ISchema, IProperty } from "types/yup";
 
-export const validateRequest = (
-  schema: ObjectSchema<object, AnyObject, object>,
-  property: "query" | "body" | "params" | undefined,
+const validateRequest = (
+  schema: ISchema,
+  property?: IProperty,
 ) => async (request: Request, response: Response, next: NextFunction) => {
   try {
     const data = property ? request[property] : request;
@@ -15,3 +14,5 @@ export const validateRequest = (
     return response.status(500).json(error.errors);
   }
 };
+
+export default validateRequest;
