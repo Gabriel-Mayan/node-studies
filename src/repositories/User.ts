@@ -1,8 +1,8 @@
-import { FindOptionsWhere } from "typeorm";
+import { FindOptionsWhere, UpdateResult } from "typeorm";
 
 import { User } from "@entity/User";
 import { AppDataSource } from "@services/typeorm";
-import { IDatabaseUser, ICreateUser } from "types/user";
+import { IDatabaseUser, ICreateUser, IUpdatedUser } from "types/user";
 
 const repository = AppDataSource.getRepository(User);
 
@@ -17,5 +17,9 @@ export const UserRepository = {
 
   createUser(user: ICreateUser): Promise<IDatabaseUser> {
     return repository.save(user);
+  },
+
+  updateUser(userId: string, updatedData: IUpdatedUser): Promise<UpdateResult> {
+    return repository.update(userId, updatedData);
   },
 };

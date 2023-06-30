@@ -1,8 +1,10 @@
-import { Request, Response, NextFunction } from "express";
+import { Response, NextFunction } from "express";
+import { RequestWithUserRole } from "types/express";
+
 import { UserRepository } from "@repositories/User";
 import { validateToken } from "@helpers/handleToken";
 
-const authentication = async (req: Request, res: Response, next: NextFunction) => {
+const authentication = async (req: RequestWithUserRole, res: Response, next: NextFunction) => {
   try {
     const { authorization } = req.headers;
 
@@ -23,6 +25,8 @@ const authentication = async (req: Request, res: Response, next: NextFunction) =
     if (!user) {
       return res.status(401).json("Auth Error");
     }
+
+    req.user = user;
 
     next();
   } catch (error) {
