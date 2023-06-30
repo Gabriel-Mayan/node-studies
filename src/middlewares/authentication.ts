@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from "express";
 import { UserRepository } from "@repositories/User";
 import { validateToken } from "@helpers/handleToken";
 
-const auth = async (req: Request, res: Response, next: NextFunction) => {
+const authentication = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { authorization } = req.headers;
 
@@ -30,4 +30,4 @@ const auth = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export default auth;
+export default authentication;

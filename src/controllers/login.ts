@@ -28,5 +28,3 @@ export const login = async (request: Request, response: Response) => {
     return response.status(200).json("Falha ao fazer login");
   }
 };
-
-export const teste = "";

@@ -1,7 +1,7 @@
 import "express-async-errors";
 import { Router } from "express";
 import swaggerUi from "swagger-ui-express";
-import swaggerDocument from "../docs/swagger.json";
+import swaggerDocument from "@docs/swagger.json";
 
 import { routes as userRoutes } from "./user.routes";
 import { routes as loginRoutes } from "./login.routes";

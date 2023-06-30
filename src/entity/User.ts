@@ -1,11 +1,11 @@
 import {
   Entity,
-  PrimaryGeneratedColumn,
-  Column,
   BaseEntity,
+  Column,
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  PrimaryGeneratedColumn,
 } from "typeorm";
 
 @Entity()

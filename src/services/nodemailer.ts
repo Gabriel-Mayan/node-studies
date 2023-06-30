@@ -15,8 +15,9 @@ transporter.use("compile", handlebar({
   extName: ".html",
 }));
 
-// eslint-disable-next-line max-len
-export const sendMail = async (mailOptions: SendMailOptions): Promise<boolean> => new Promise<boolean>((resolve, reject) => {
+export const sendMail = async (
+  mailOptions: SendMailOptions,
+) => new Promise<boolean>((resolve, reject) => {
   transporter.sendMail(mailOptions, (error: Error | null) => {
     if (error) {
       reject(error);
