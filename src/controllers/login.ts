@@ -14,7 +14,7 @@ export const login = async (request: Request, response: Response) => {
       return response.status(400).json("Username or password is invalid");
     }
 
-    const verifiedPassword = comparePassword(password, databaseUser.password);
+    const verifiedPassword = await comparePassword(password, databaseUser.password);
 
     if (!verifiedPassword) {
       return response.status(400).json("Username or password is invalid");
