@@ -2,7 +2,7 @@
 import "reflect-metadata";
 import { AppDataSource } from "@services/typeorm";
 import { initializeSentry } from "@services/sentry";
-import { app } from "./app";
+import app from "./app";
 
 const port = process.env.PORT as string || 8080;
 initializeSentry(process.env.SENTRY_URL as string);

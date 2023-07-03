@@ -12,4 +12,4 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
-export { app };
+export default app;
