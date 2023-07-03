@@ -31,15 +31,7 @@ export const updateUserSchema = yup.object().shape({
   email: yup
     .string()
     .strict()
-    .email()
-    .test("unique-email", "Usuário já cadastrado.", async (email) => {
-      if (email) {
-        const hasUser = await UserRepository.findUser({ email });
-        return !hasUser;
-      }
-
-      return true;
-    }),
+    .email(),
 
   password: yup
     .string()

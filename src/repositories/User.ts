@@ -20,6 +20,6 @@ export const UserRepository = {
   },
 
   updateUser(userId: string, updatedData: IUpdatedUser): Promise<UpdateResult> {
-    return repository.update(userId, updatedData);
+    return repository.update({ id: userId }, updatedData);
   },
 };

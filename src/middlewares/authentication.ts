@@ -19,8 +19,7 @@ const authentication = async (req: RequestWithUserRole, res: Response, next: Nex
       return res.status(401).json("Auth Error");
     }
 
-    const { id, email } = tokenInfo;
-    const user = await UserRepository.findUser({ id, email });
+    const user = await UserRepository.findUser({ email: tokenInfo.email });
 
     if (!user) {
       return res.status(401).json("Auth Error");

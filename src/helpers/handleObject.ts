@@ -2,7 +2,7 @@ import { IDatabaseUser, IFrontUser } from "types/user";
 
 export const formatDatabaseUser = (databaseUser: IDatabaseUser): IFrontUser => {
   const {
-    createdAt, updatedAt, deletedAt, password, ...user
+    id, password, createdAt, updatedAt, deletedAt, ...user
   } = databaseUser;
 
   return user;
