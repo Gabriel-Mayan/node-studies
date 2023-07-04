@@ -5,7 +5,7 @@ import { encryptPassword } from "@helpers/handlePassword";
 
 import { IUpdatedUser } from "types/user";
 import { RequestWithUserRole } from "types/express";
-import { formatDatabaseUser } from "@helpers/handleObject";
+import { formatDatabaseUser } from "@helpers/utils";
 
 export const createUser = async (request: Request, response: Response) => {
   const { name, email, password } = request.body;

@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import { UserRepository } from "@repositories/User";
-import { comparePassword } from "@helpers/handlePassword";
-import { formatDatabaseUser } from "@helpers/handleObject";
+
+import { formatDatabaseUser } from "@helpers/utils";
 import { generateUserToken } from "@helpers/handleToken";
+import { comparePassword } from "@helpers/handlePassword";
 
 export const login = async (request: Request, response: Response) => {
   try {
