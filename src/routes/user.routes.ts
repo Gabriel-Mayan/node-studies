@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { createUser, updateUser } from "@controllers/users";
+import { createUser, updateUser } from "@controllers/user";
 import { createUserSchema, updateUserSchema } from "@validations/userSchema";
 
 import authentication from "@middlewares/authentication";

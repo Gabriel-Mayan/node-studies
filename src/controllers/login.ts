@@ -21,7 +21,9 @@ export const login = async (request: Request, response: Response) => {
       return response.status(400).json("Username or password is invalid");
     }
 
-    const token = generateUserToken({ id: databaseUser.id, email: databaseUser.email });
+    const { id, userType } = databaseUser;
+
+    const token = generateUserToken({ id, email, userType: userType.name });
     const user = formatDatabaseUser(databaseUser);
 
     return response.status(200).json({ user, token });

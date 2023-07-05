@@ -1,21 +1,34 @@
 import { Request, Response } from "express";
+import { RequestWithUserRole } from "types/express";
+import { ICreateUser, IUpdatedUser } from "types/user";
 
 import { UserRepository } from "@repositories/User";
-import { encryptPassword } from "@helpers/handlePassword";
+import { UserTypeRepository } from "@repositories/UserType";
 
-import { IUpdatedUser } from "types/user";
-import { RequestWithUserRole } from "types/express";
 import { formatDatabaseUser } from "@helpers/utils";
+import { encryptPassword } from "@helpers/handlePassword";
 
 export const createUser = async (request: Request, response: Response) => {
   const { name, email, password } = request.body;
 
   try {
-    const encryptedPassword = await encryptPassword(password);
-    const newUser = await UserRepository.createUser({ name, email, password: encryptedPassword });
-    const formattedUser = formatDatabaseUser(newUser);
+    const userType = await UserTypeRepository.findType({ name: "Regular" });
 
-    return response.status(200).json({ message: "Cliente cadastrado com sucesso", user: formattedUser });
+    if (!userType) {
+      return response.status(400).json({ message: "Erro ao criar novo usuário:" });
+    }
+
+    const newUser: ICreateUser = {
+      name,
+      email,
+      password: await encryptPassword(password),
+      userType,
+    };
+
+    const insertedUser = await UserRepository.createUser(newUser);
+    const formattedUser = formatDatabaseUser(insertedUser);
+
+    return response.status(200).json({ message: "Cliente cadastrado", user: formattedUser });
   } catch (error) {
     return response.status(400).json({ message: "Erro ao criar novo usuário:", error });
   }

@@ -44,7 +44,7 @@ export class User extends BaseEntity {
     @JoinColumn()
       image: Image;
 
-    @ManyToOne(() => UserType, (userType) => userType.name, { nullable: false })
+    @ManyToOne(() => UserType, { nullable: false, eager: true })
     @JoinColumn()
       userType: UserType;
 }
