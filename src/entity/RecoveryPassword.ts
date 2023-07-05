@@ -16,7 +16,7 @@ export class RecoveryPassword extends BaseEntity {
       id: string;
 
     @Column({ type: "timestamp" })
-      expiresIn: string;
+      expiresIn: Date;
 
     @CreateDateColumn({ type: "timestamp" })
       createdAt: Date;
