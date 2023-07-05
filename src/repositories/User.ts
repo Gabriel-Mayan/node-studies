@@ -12,7 +12,7 @@ export const UserRepository = {
   },
 
   findUser(query: FindOptionsWhere<User>): Promise<IDatabaseUser | null> {
-    return repository.findOneBy(query);
+    return repository.findOneBy({ deletedAt: undefined, ...query });
   },
 
   createUser(user: ICreateUser): Promise<IDatabaseUser> {
