@@ -9,9 +9,9 @@ const transporter = createTransport({
 transporter.use("compile", handlebar({
   viewEngine: {
     extname: ".html",
-    partialsDir: "../utils/email-template",
+    partialsDir: "../utils/email/template",
   },
-  viewPath: "../utils/email-template",
+  viewPath: "../utils/email/template",
   extName: ".html",
 }));
 

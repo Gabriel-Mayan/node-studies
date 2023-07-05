@@ -4,9 +4,14 @@ import { ICreateUser, IUpdatedUser } from "types/user";
 
 import { UserRepository } from "@repositories/User";
 import { UserTypeRepository } from "@repositories/UserType";
+import { RecoveryPasswordRepository } from "@repositories/RecoveryPassword";
 
+import { addTime, isAfterDate } from "@helpers/handleDate";
+import { generateUuid } from "@helpers/handleUuid";
 import { formatDatabaseUser } from "@helpers/utils";
 import { encryptPassword } from "@helpers/handlePassword";
+
+import { sendMail } from "@services/nodemailer";
 
 export const getUsers = async (request: Request, response: Response) => {
   try {
@@ -121,4 +126,69 @@ export const toggleUserStatus = async (request: Request, response: Response) => 
   }
 
   return response.status(200).json("Status do usuário atualizado com sucesso");
+};
+
+export const recoveryUserPassword = async (request: Request, response: Response) => {
+  const { email } = request.body;
+
+  const user = await UserRepository.findUser({ email });
+
+  if (!user) {
+    return response.status(404).json("User does not exist");
+  }
+
+  const insertedInfo = await RecoveryPasswordRepository.createRecovery({
+    id: generateUuid(),
+    expiresIn: addTime(new Date(), { hours: 3 }),
+    user,
+  });
+
+  if (!insertedInfo) {
+    return response.status(404).json("error insert uuid in database");
+  }
+
+  const emailSent = await sendMail({
+    from: `${process.env.EMAIL_SENDER_NAME} <${process.env.EMAIL_USERNAME}>`,
+    to: user.email,
+    subject: "Password Recovery",
+    // TODO dar um jeito nisso aqui
+    // template: "recovery-password/index",
+    // context: {
+    //   linkRecoveryPassword: `${process.env.URL_RECOVERY_PASSWORD}/${insertedInfo.id}`,
+    //   linkWhatsapp: process.env.URL_WHATSAPP,
+    // },
+    // attachments: recoveryAttachments,
+  });
+
+  if (!emailSent) {
+    return response.status(400).json("Failed to send email.");
+  }
+
+  return response.status(200).json("Email successfully sent!");
+};
+
+export const updateUserPassword = async (request: Request, response: Response) => {
+  const { id } = request.params;
+  const { password } = request.body;
+
+  const registeredRequest = await RecoveryPasswordRepository.findRecovery({ id });
+
+  if (!registeredRequest) {
+    return response.status(404).json("Request does not exist");
+  }
+
+  const expiredTime = isAfterDate(new Date(), registeredRequest.expiresIn);
+
+  if (expiredTime) {
+    return response.status(400).json("Request error: expired uuid.");
+  }
+
+  const newPassword = await encryptPassword(password);
+  const userUpdated = await UserRepository.updateUser(id, { password: newPassword });
+
+  if (!userUpdated) {
+    return response.status(400).json("unable to update password.");
+  }
+
+  return response.status(200).json("password retrieved successfully");
 };
