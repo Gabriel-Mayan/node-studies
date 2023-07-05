@@ -22,4 +22,8 @@ export const UserRepository = {
   updateUser(userId: string, updatedData: IUpdatedUser): Promise<UpdateResult> {
     return repository.update({ id: userId }, updatedData);
   },
+
+  deleteUser(userId: string): Promise<UpdateResult> {
+    return repository.update({ id: userId }, { deletedAt: new Date() });
+  },
 };
