@@ -7,6 +7,6 @@ import validateRequest from "@middlewares/validateRequest";
 
 const routes = Router();
 
-routes.post("/login", validateRequest(loginSchema, "body"), login);
+routes.post("/", validateRequest(loginSchema, "body"), login);
 
 export { routes };

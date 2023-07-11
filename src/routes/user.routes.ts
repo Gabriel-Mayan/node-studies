@@ -8,7 +8,7 @@ import validateRequest from "@middlewares/validateRequest";
 
 const routes = Router();
 
-routes.post("/user/create", validateRequest(createUserSchema, "body"), createUser);
-routes.patch("/user/edit", authentication, validateRequest(updateUserSchema, "body"), updateUser);
+routes.post("/create", validateRequest(createUserSchema, "body"), createUser);
+routes.patch("/edit", authentication, validateRequest(updateUserSchema, "body"), updateUser);
 
 export { routes };
