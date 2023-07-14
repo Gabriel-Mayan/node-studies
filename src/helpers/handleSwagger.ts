@@ -59,12 +59,10 @@ export const formatSchema = ({
   properties,
 }: IFormatSchema): any => {
   const required: Array<string> = [];
-  let props = {};
+  let props = { };
 
   properties.forEach((prop) => {
-    const name = prop[0];
-    const type = prop[1];
-    const isRequired = prop[2];
+    const { name, type, required: isRequired } = prop;
 
     if (isRequired) {
       required.push(name);

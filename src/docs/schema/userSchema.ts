@@ -3,8 +3,8 @@ import { formatSchema } from "@helpers/handleSwagger";
 export const createUserSchema = formatSchema({
   typeSchema: "object",
   properties: [
-    ["name", "string", true],
-    ["email", "string", true],
-    ["password", "string", true],
+    { name: "name", type: "string", required: true },
+    { name: "email", type: "string", required: true },
+    { name: "password", type: "string", required: true },
   ],
 });

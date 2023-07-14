@@ -11,5 +11,5 @@ export interface IBaseSwaggerPath {
 
 export interface IFormatSchema {
   typeSchema: "string" | "integer" | "object" | "http",
-  properties: Array<[ string, string, boolean ]>
+  properties: Array<{ name: string, type: string, required: boolean }>
 }

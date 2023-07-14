@@ -3,15 +3,15 @@ import { formatSchema } from "@helpers/handleSwagger";
 export const loginSchema = formatSchema({
   typeSchema: "object",
   properties: [
-    ["email", "string", true],
-    ["password", "string", true],
+    { name: "email", type: "string", required: true },
+    { name: "password", type: "string", required: true },
   ],
 });
 
 export const loginResponseSchema = formatSchema({
   typeSchema: "object",
   properties: [
-    ["id", "string", false],
-    ["token", "string", false],
+    { name: "id", type: "string", required: false },
+    { name: "token", type: "string", required: false },
   ],
 });
