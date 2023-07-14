@@ -1,17 +1,19 @@
 import "express-async-errors";
 import { Router } from "express";
-import { serve, setup } from "swagger-ui-express";
-import swaggerDocument from "@docs/index";
+
+import authentication from "@middlewares/authentication";
+import verifyPermissions from "@middlewares/verifyPermissions";
 
 import { routes as userRoutes } from "./user.routes";
 import { routes as loginRoutes } from "./login.routes";
+import { routes as adminRoutes } from "./admin.routes";
+import { routes as publicRoutes } from "./public.routes";
 
 const router = Router();
 
-router.use("/api-docs", serve, setup(swaggerDocument));
-router.get("/", (_, response) => response.status(200).json({ message: "Server is running..." }));
-
-router.use("/user", userRoutes);
+router.use("/", publicRoutes);
 router.use("/login", loginRoutes);
+router.use("/user", authentication, userRoutes);
+router.use("/admin", authentication, verifyPermissions("Admin"), adminRoutes);
 
 export { router };
