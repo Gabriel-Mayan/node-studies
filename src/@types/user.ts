@@ -3,7 +3,7 @@ export interface IDatabaseUser {
   name: string;
   email: string;
   password: string;
-  isActive: boolean;
+  isActive?: boolean;
   createdAt: Date;
   updatedAt: Date;
   deletedAt: Date | null;
@@ -20,7 +20,6 @@ export interface IUpdatedUser {
 export type ICreateUser = Omit<
   IDatabaseUser,
   "id" |
-  "isActive"|
   "createdAt" |
   "updatedAt" |
   "deletedAt"

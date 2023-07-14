@@ -8,7 +8,7 @@ const repository = AppDataSource.getRepository(User);
 
 export const UserRepository = {
   getUsers(): Promise<IDatabaseUser[]> {
-    return repository.find();
+    return repository.findBy({ deletedAt: undefined });
   },
 
   findUser(query: FindOptionsWhere<User>): Promise<IDatabaseUser | null> {

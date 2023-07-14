@@ -9,4 +9,9 @@ export const UserTypeRepository = {
   findType(query: FindOptionsWhere<UserType>): Promise<IDatabaseUserType | null> {
     return repository.findOneBy(query);
   },
+
+  // TODO ajustar isso aqui
+  createType(type: any): Promise<IDatabaseUserType | IDatabaseUserType[]> {
+    return repository.save(type);
+  },
 };
