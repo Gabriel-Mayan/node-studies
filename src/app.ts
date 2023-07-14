@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(router);
 app.use(cors({
   origin: true,
-  methods: ["GET", "PATCH", "POST", "DELETE"],
+  methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
 }));
 
