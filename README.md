@@ -1,4 +1,1 @@
-# node_config
-## TODO
-### Configurar o jest
-### Configurar o serviço de upload
+# Repositorio para estudos de nodejs comn typescript
